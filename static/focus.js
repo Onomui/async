@@ -24,15 +24,13 @@ async function run() {
 run();
 
 async function sendRequest(url) {
-  fetch(url)
+  return fetch(url)
     .then((response) => {
       if (!response.ok) {
         new Error("Failed");
       }
-
       return response.json();
     })
-    .then((data) => callback(data))
     .catch((err) => {
       console.error(err);
     });
